@@ -23,6 +23,7 @@ class search_screen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
                   child: defaultTextField(
                       Controller: search_controller,
+                      context: context,
                       icon_1: Icons.search,
                       hint: 'Type something ....',
                       validate: (String value){

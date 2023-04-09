@@ -10,6 +10,7 @@ import 'constants.dart';
 Widget defaultTextField(
         {
         required TextEditingController Controller,
+          required BuildContext context,
         required IconData icon_1,
           String? label,
         required Function validate,
@@ -17,29 +18,31 @@ Widget defaultTextField(
           Function? ONchange,
         bool ispassword = false,
         Function? suffix_1}) =>
-    TextFormField(
-      decoration: InputDecoration(
-          border: const OutlineInputBorder(),
-          prefixIcon: Icon(icon_1),
-          suffixIcon: ispassword
-              ? IconButton(
-                  icon: Icon(Icons.remove_red_eye),
-                  onPressed: (){
-                    suffix_1??(){};
-                  },
-                )
-              : null,
-
-          ///icon next to the tff but the prefix is inside it
-          labelText: label??'',
-        hintText: hint??''
+    Card(
+      color: Colors.white,
+      child: TextFormField(
+        style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 15),
+        decoration: InputDecoration(
+            prefixIcon: Icon(icon_1),
+            suffixIcon: ispassword
+                ? IconButton(
+                    icon: Icon(Icons.remove_red_eye,),
+                    onPressed: (){
+                      suffix_1??(){};
+                    },
+                  )
+                : null,
+            ///icon next to the tff but the prefix is inside it
+            labelText: label??'',
+          hintText: hint??''
+        ),
+        validator: (s){
+          validate(s!);
+        },
+        onChanged: (s){ONchange!(s);},
+        controller: Controller,
+        obscureText: ispassword,
       ),
-      validator: (s){
-        validate(s!);
-      },
-      onChanged: (s){ONchange!(s);},
-      controller: Controller,
-      obscureText: ispassword,
     );
 
 ///questions
@@ -255,6 +258,7 @@ Widget text_field({required context,required IconData prefix_icon,required contr
   ),
   child: Center(
     child: TextFormField(
+      style:Theme.of(context).textTheme.bodyText1,
       controller: controller,
       decoration: InputDecoration(
         border: InputBorder.none,

@@ -5,13 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app2/basics/News_App/News_cubit.dart';
 import 'package:news_app2/basics/News_App/News_states.dart';
 import 'package:news_app2/shared/components/Bloc_observer.dart';
-import 'package:news_app2/shared/components/constants.dart';
 import 'package:news_app2/shared/network/local/shared_pref.dart';
 import 'package:news_app2/shared/network/remote/dioHelper.dart';
-import 'package:news_app2/basics/News_App/News_Ui.dart';
 import 'package:page_transition/page_transition.dart';
-import 'basics/News_App/screens/login_register/login_screen.dart';
-import 'basics/News_App/screens/login_register/register.dart';
 import 'basics/News_App/screens/login_register/welcome page.dart';
 
 void main() async {
@@ -23,22 +19,6 @@ void main() async {
     MyApp(),
   );
 }
-/*
-    MultiBlocProvider(
-  providers: [
-    BlocProvider<BlocA>(
-      create: (BuildContext context) => BlocA(),
-    ),
-    BlocProvider<BlocB>(
-      create: (BuildContext context) => BlocB(),
-    ),
-    BlocProvider<BlocC>(
-      create: (BuildContext context) => BlocC(),
-    ),
-  ],
-  child: ChildA(),
-)
-    */
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -86,6 +66,14 @@ class MyApp extends StatelessWidget {
               ),
             ),
             darkTheme: ThemeData(
+                inputDecorationTheme: const InputDecorationTheme(
+                  border: OutlineInputBorder(),
+                  fillColor:Colors.grey,
+                  labelStyle: TextStyle(color: Colors.grey),
+                  iconColor: Colors.grey,
+                  hintStyle: TextStyle(color: Colors.grey) ,
+
+                ),
                 primarySwatch: Colors.deepOrange,
                 bottomNavigationBarTheme: const BottomNavigationBarThemeData(
                   selectedIconTheme: IconThemeData(color: Colors.deepOrange),
@@ -97,6 +85,7 @@ class MyApp extends StatelessWidget {
                 ),
                 scaffoldBackgroundColor: Colors.black12,
                 textTheme: const TextTheme(
+                  caption: TextStyle(decorationColor: Colors.grey),
                   bodyText1: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
