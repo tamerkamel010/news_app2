@@ -37,7 +37,7 @@ class search_screen extends StatelessWidget {
                       }
                   ),
                 ),
-              Expanded(child: articlebuilder(News_cubit.get(context).Search,context)),
+              Expanded(child: articlebuilder(News_cubit.get(context).Search,context,isSearch: true)),
               ],
             );
           }
