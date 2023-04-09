@@ -205,14 +205,14 @@ Widget myDivider()=>Padding(
     width: double.infinity,
   ),
 );
-Widget articlebuilder(list,context) =>ConditionalBuilder(
+Widget articlebuilder(list,context,{bool isSearch = false}) =>ConditionalBuilder(
     condition:(list.isNotEmpty) ,
     builder: (context)=>ListView.separated(
         physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) => Item(list[index],context),
         separatorBuilder: (context, index) =>myDivider(),
         itemCount: list.length),
-    fallback: (context)=> const Center(child:CircularProgressIndicator()));
+    fallback: (context)=> !isSearch ?const Center(child:CircularProgressIndicator()): Container());
 void NavigateTo(context,Widget){
   Navigator.push(
       context,

@@ -21,23 +21,25 @@ class _Admin_loginState extends State<Admin_login> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Form(
-          key: form_key,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              text_field(context: context,prefix_icon: Icons.person,controller: person_cont),
-              SizedBox(height: height(context)*0.03,),
-              text_field(context: context,prefix_icon: Icons.lock,controller: password_cont),
-              SizedBox(height: height(context)*0.03,),
-              ElevatedButton(onPressed: (){
-               if(person_cont.text.toString() == 'tamer'&& password_cont.text.toString() =='123'){
-                 NavigateAndDelete(context, newsHome());
-               }
-              }, child: Text('Login'))
-            ],
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Form(
+            key: form_key,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                text_field(context: context,prefix_icon: Icons.person,controller: person_cont),
+                SizedBox(height: height(context)*0.03,),
+                text_field(context: context,prefix_icon: Icons.lock,controller: password_cont),
+                SizedBox(height: height(context)*0.03,),
+                ElevatedButton(onPressed: (){
+                 if(person_cont.text.toString() == 'tamer'&& password_cont.text.toString() =='123'){
+                   NavigateAndDelete(context, newsHome());
+                 }
+                }, child: Text('Login'))
+              ],
+            ),
           ),
         ),
       ),
