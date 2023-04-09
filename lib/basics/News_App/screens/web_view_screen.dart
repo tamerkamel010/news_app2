@@ -8,6 +8,7 @@ class web_view_screen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: WebView(
+        javascriptMode: JavascriptMode.unrestricted,
         initialUrl: url,
       )
     );
